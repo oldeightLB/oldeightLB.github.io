@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin-top: 50px;
+		}
+		button {
+			padding: 10px;
+			font-size: 20px;
+			margin: 10px;
+			border-radius: 5px;
+			background-color: #fff;
+			border: 1px solid #000;
+			box-shadow: 0 2px 5px rgba(0,0,0,.3);
+			cursor: pointer;
+			width: 70px;
+			height: 70px;
+			outline: none;
+			color: #000;
+			font-weight: bold;
+			transition: all .2s ease-in-out;
+		}
+		button:hover {
+			background-color: #f2f2f2;
+			transform: scale(1.1);
+		}
+		.output {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 30px;
+		}
+		input {
+			padding: 10px;
+			font-size: 24px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #fff;
+			box-shadow: 0 2px 5px rgba(0,0,0,.3);
+			outline: none;
+			color: #000;
+			text-align: center;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="output">
+		<input type="text" id="result" readonly>
+	</div>
+	<div class="container">
+		<button value="1">1</button>
+		<button value="2">2</button> 
+		<button value="3">3</button>
+		<button value="4">4</button>
+		<button value="5">5</button> 
+		<button value="6">6</button>
+		<button value="7">7</button>
+		<button value="8">8</button> 
+		<button value="9">9</button>
+		<button value=".">.</button> 
+		<button value="0">0</button> 
+		<button value="clear">C</button>
+		<button value="+">+</button>
+		<button value="-">-</button>
+		<button value="*">*</button>
+		<button value="/">/</button> 
+		<button value="=">=</button>
+	</div>
+	
+	<script>
+		const buttons = document.querySelectorAll("button");
+		const result = document.querySelector("#result");
+
+		buttons.forEach( button => {
+			button.addEventListener("click", () => {
+				switch(button.value) {
+					case "clear":
+						result.value = "";
+						break;
+					case "=":
+						try {
+							const output = eval(result.value);
+							result.value = output;
+						} catch (error) {
+							result.value = "Error";
+						}
+						break;
+					default:
+						result.value += button.value;
+						break;
+				}
+			})
+		})
+	</script>
+</body>
+</html>
