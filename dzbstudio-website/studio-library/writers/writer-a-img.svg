@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="555" height="128" viewBox="0 0 555 128">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #919aff;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        font-size: 39px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #6673ff;
+        font-family: "Microsoft YaHei UI";
+      }
+
+      .cls-3 {
+        font-size: 73px;
+      }
+    </style>
+    <filter id="filter" x="10" y="5" width="537" height="117" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#b5bbff"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g style="fill: ; filter: url(#filter)">
+    <rect id="圆角矩形_1" data-name="圆角矩形 1" class="cls-1" x="10" y="5" width="537" height="117" rx="58.5" ry="58.5" style="stroke: inherit; filter: none; fill: inherit"/>
+  </g>
+  <use xlink:href="#圆角矩形_1" style="stroke: #919aff; filter: none; fill: none"/>
+  <text id="作者·Fyxce" class="cls-2" x="49" y="73">作者·Fyxce</text>
+  <text id="_" data-name="&gt;" class="cls-3" transform="translate(469.5 33.5) rotate(90)">&gt;</text>
+</svg>

@@ -1,0 +1,103 @@
+<head>
+    <title>
+        图书 | DZB工作室图书馆 | 懒得写CSS让GPT写
+    </title>
+    <style>
+        .lib-title-line {
+            display: flex;
+            font-size: 0;
+        }
+        
+        .lib-title {
+            margin-left: 30px;
+            margin-top: 30px;
+            font-size: 32px;
+        }
+        
+        .writer-img {
+            max-width: 50%;
+            /* 图像的最大宽度为容器的宽度 */
+            max-height: 50%;
+            /* 图像的最大高度为容器的高度 */
+            height: auto;
+            /* 保持图像的纵横比 */
+        }
+        
+        #selection-box {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            /* 添加圆角边框 */
+        }
+        
+        #page-select {
+            width: 100%;
+            /* 使选择框充满容器宽度 */
+            margin-bottom: 10px;
+            /* 调整选择框和按钮的垂直间距 */
+        }
+        /* 将按钮放在选择框下方 */
+        
+        #page-select+button {
+            display: block;
+            width: 100%;
+            /* 使按钮充满容器宽度 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lib-title-line">
+        <h1 class="lib-title">图书馆</h1>
+        <a style="font-size:11px;margin-top: 35px;margin-right: 50px;text-align: right;margin-left: auto;">
+            <img src="writer-a-img.svg" class="writer-img" id="writer-img-id">
+            </img>
+        </a>
+        <div id="selection-box">
+            <label for="page-select">选择一个选项:</label>
+            <select id="page-select">
+                <option value="writer-j.htm">假_科技之家官方</option>
+                <option value="writer-a.htm">Fyxce</option>
+            </select>
+            <button onclick="navigate()">跳转</button>
+        </div>
+
+        <script>
+            // 获取图像和选择框的引用
+            const image = document.getElementById("writer-img-id");
+            const selectionBox = document.getElementById("selection-box");
+            const pageSelect = document.getElementById("page-select");
+
+            // 当图像被点击时显示选择框
+            image.addEventListener("click", () => {
+                selectionBox.style.display = "block";
+            });
+
+            // 跳转到选定的页面
+            function navigate() {
+                const selectedPage = pageSelect.value;
+                window.location.href = selectedPage;
+            }
+        </script>
+    </div>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div style="text-align: center;">
+        <img src="https://img-static.mihoyo.com/communityweb/upload/fe751e28e2c19713409703ff8ede5991.png"></img>
+        <p>太忙了帕！不想写代码了帕！</p>
+    </div>
+</body>
