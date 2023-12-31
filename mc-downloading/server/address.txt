@@ -1,4 +1,5 @@
 游戏版本：Minecraft Bedrock 1.20.40
 服务器地址：play1.mx16.com
 服务器端口：25619
+手机端评论区地址：https://github.com/oldeightLB/sdwdtalk/discussions/2
 当前服务器状态：内部测试，未获取资格玩家限制主城出入
