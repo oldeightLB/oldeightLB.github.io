@@ -1,0 +1,346 @@
+<!doctype html>
+<!-- 图片链接 https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE2OTY1MTU5NTk5MzFfNWQ5NDNkZTA.png
+https://img.tapimg.com/market/images/2917bbd8fd5c472e6c37e795d8e83678.png
+https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
+
+<head>
+    <title>ShaDiaowd | 一个普普通通的初中牲</title>
+    <style>
+        @font-face {
+            font-family: 'HarmonyOS_Sans_SC';
+            /* 自定义字体名称 */
+            src: url('https://112-28-188-71.pd1.123pan.cn:30443/download-cdn.123pan.cn/123-264/69aa5b1b/1627972-0/69aa5b1b2573ec2c2d540e42dcd21108/c-m23?v=5&t=1714716720&s=1714716720758290ce35fd10738e79df430fcdb9c1&r=0ZLEC3&bzc=2&bzs=313832323032333933363a32343639373033363a383236313132383a30&filename=HARMONYOS_SANS_SC_REGULAR.TTF&x-mf-biz-cid=85b30484-e6ea-40b4-a264-4466d847f7d1-47df1e&auto_redirect=0&ndcp=1&cache_type=1&xmfcid=9a928554-1d97-4a47-99df-307033a10323-1-50111d3b1');
+            /* 字体文件的相对路径 */
+        }
+        
+        body {
+            margin: 0px;
+            font-family: 'HarmonyOS_Sans_SC';
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* 设置背景颜色 */
+            color: hsl(0, 0%, 100%);
+            /* 设置文本颜色 */
+            padding: 6px;
+            /* 设置内边距，增加可读性 */
+            z-index: 100;
+            /* 控制悬停元素的层级 */
+            border-top: none;
+            /* 移除上边框 */
+            backdrop-filter: blur(35px);
+        }
+        
+        .p1 {
+            padding-top: 80px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            background-color: black;
+            color: white
+        }
+        
+        .p2 {
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: #484848;
+            color: white;
+            text-align: center;
+        }
+        
+        .p3 {
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: hwb(0 100% 0%);
+            color: hsl(0, 0%, 0%);
+            text-align: center;
+        }
+        
+        .p4 {
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: #5c5c5c;
+            color: white;
+            text-align: center
+        }
+        
+        .p5 {
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-image: url('https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE2OTY1MTU5NTk5MzFfNWQ5NDNkZTA.png');
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: center
+        }
+        
+        .p5-content {
+            text-align: left;
+        }
+        
+        .p5-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
+        }
+        
+        .p6 {
+            position: relative;
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-image: url('https://uploads.sxlcdn.com/static/backgrounds/nature/190.jpg');
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: left
+        }
+        
+        .p7 {
+            position: relative;
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: black;
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: center
+        }
+        
+        .gengxin {
+            position: relative;
+            padding: 10px;
+            padding-left: 25px;
+            padding-right: 10px;
+            background-color: hsl(0, 0%, 33%);
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .page_end {
+            position: relative;
+            padding: 10px;
+            padding-left: 25px;
+            padding-right: 10px;
+            background-color: #464646;
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        .learn-more {
+            border-radius: 900px;
+            padding: 10px 30px;
+            margin-top: 8px;
+            font-size: 18px;
+            background-color: white;
+            color: black;
+            border: none;
+            transition: all 0.3s ease;
+            font-family: HarmonyOS_Sans_SC;
+            transition: transform 0.3s ease;
+        }
+        
+        .learn-more:hover {
+            transform: translateY(-6.6px);
+            /* 上移 5 像素 */
+        }
+        
+        .projects {
+            text-align: left;
+            border: 0.3px solid hsl(0, 0%, 70%);
+            border-radius: 10px;
+            display: inline-block;
+            padding: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 13px;
+            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .projects:hover {
+            transform: translateY(-6.6px);
+            /* 上移 5 像素 */
+        }
+        
+        .projectname {
+            color: hwb(215 0% 0%);
+            display: inline-block;
+        }
+        
+        .projectin {
+            color: black;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar" style="display: flex;">
+        <h3 class="logo">&nbsp;&nbsp;&nbsp;ShaDiaowd</h3>
+        <p style="margin-left: auto;margin-right: 50px;margin-top: 20px;"><a href="https://space.bilibili.com/2132118529">BiliBili</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://GitHub.com/OldeightLB">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://blog-shadiaowd.pages.dev">↗访问博客</a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="alert('Only Chinese is support. - 该页面仅支持中文。')">🌏</a></p>
+    </div>
+    <div class="p1">
+        <h1 style="font-size: 50px;margin-bottom: -5px;">ShaDiaowd</h1>
+        <p>一个普普通通的初中牲，算不上是 bilibili up主，miHoYo狂热玩家（低情商：魔怔），花粉</br>成绩在班级中游上下浮动，体育不好（bushi</br>现就读于广东省某不知名学校</p>
+        <a href="https://space.bilibili.com/2132118529"><button class="learn-more">了解更多</button></a>
+    </div>
+    <div class="p2">
+        <h1>我的兴趣爱好</h1>
+        <p>既然我都做出这个网站了，那说明什么？（虽然HTML是标记语言）</br>2020年，一次偶然的机会，我接触到了编程；然后我就开始学习编程</br>现在，我已经学会了Kitten、Python等编程语言（JavaSprict：从入门到放弃）</p>
+        <p>同时也会一点点视频剪辑，Photoshop</p>
+        <p>不太会唱歌，有点五音不全</p>
+        <p>不太算是二次元吧 就是比较喜欢玩miHoYo的游戏，但是那颗麒麟990和那张MX350有点不够用</p>
+    </div>
+    <div class="p3">
+        <h1>我的项目</h1>
+        <p>一些比较老的项目就不端上来了，这些都是一些新的项目（网站可能没有时间维护，更新日期截止至2024/5/2）</p>
+        <div class="projects">
+            <a href="">
+                <p class="projectname">（开发中）游戏：HeartArea</p>
+                <p class="projectin">2D像素风RPG动作剧情游戏</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="">
+                <p class="projectname">（开发中）软件：CMDPDF</p>
+                <p class="projectin">基于ReportLab完全免费开源的命令行PDF编辑工具</p>
+            </a>
+        </div>
+        </br>
+        <div class="projects">
+            <a href="https://ShaDiaowd.pages.dev/luping_preview">
+                <p class="projectname">网站：DZB在线屏幕录制工具（2.0）</p>
+                <p class="projectin">基于傲软录屏API的屏幕录制工具，完全免费</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="https://ShaDiaowd.pages.dev/luping_preview">
+                <p class="projectname">网站：ShaDiaowd's Blog</p>
+                <p class="projectin">重新设计的博客网站。</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="">
+                <p class="projectname">动漫：《星穹铁道：前传》重制版</p>
+                <p class="projectin">重制版的意思是第一稿废了，就没打算做，只是一闪而过的念头</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="https://github.com/OldeightLB/starward">
+                <p class="projectname">翻译作品：BetterStarWard</p>
+                <p class="projectin">翻完了，但是C++不会编译</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="https://github.com/OldeightLB/starward">
+                <p class="projectname">游戏：代号：契机</p>
+                <p class="projectin">大型开放世界RPG，也是一闪而过的念头，不做</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="">
+                <p class="projectname">Minecraft服务器：IKUN 生存服务器</p>
+                <p class="projectin">由于云服务商服务变动，存档已丢失，最后一次备份在春节，目前已停服</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="">
+                <p class="projectname">Minecraft地图：茨冈尼亚-VI</p>
+                <p class="projectin">打算用低版本做了 高版本超平坦shi一样</p>
+            </a>
+        </div>
+        <div class="projects">
+            <a href="https://shadiaowd.pages.dev/dbsxapp/index.html">
+                <p class="projectname">软件：待办事项手机APP</p>
+                <p class="projectin">由于云服务商服务变动及备案问题，目前已停更</p>
+            </a>
+        </div>
+    </div>
+    <div class="p4">
+        <h1>我的荣誉</h1>
+        <p>这东西可不能张扬啊……</p>
+        <p>此处不公开，此处不公开，此处不公开！！</p>
+        <a onclick="alert('你搁这干啥嘞，都说了不公开！！！！（作者ip属地：广东）')" ;><button class=" learn-more ">了解更多</button></a>
+    </div>
+    <div class="p5">
+        <h1>我的「热爱」</h1>
+        <p>由于图片较大，所以看上去可能花了较大篇幅，实际上不大的啊</p>
+        <p>除特别说明外，以下引用的网站均为中国站。</p>
+        <div class="p5-content">
+            <div>
+                <h2>崩坏：星穹铁道</h2>
+                <img src="https://upload-bbs.miyoushe.com/upload/2024/04/25/288909600/b8d091dac36984850dfffede8f6b5eb9_1716960016487460846.png" class="p5-img" />
+                <p>( 图片来源：米游社 崩坏星穹铁道官方账号 如有侵权请联系删除 )</br><strong>由米哈游自研的银河冒险策略回合制RPG；曾获得过2023 TGA 最佳移动游戏等奖项，2023年获得大满贯。</strong></br>个人认为，是一款角色塑造全国顶尖；技术力超强；剧情值得三刷的二次元RPG游戏。</br>该游戏配乐质量极好，曾多次被新华社B站账号引用。</br>怎么说呢，遥遥领先于企鹅</br>这里不太适合说缺点，就不说了</p>
+                <a href="https://sr.mihoyo.com" ;><button class=" learn-more ">游戏官网</button></a>
+            </div>
+            <div>
+                <h2>原神</h2>
+                <img src="https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png" class="p5-img" />
+                <p>( 图片来源：《原神》官方网站 如有侵权请联系删除 )</br><strong>米哈游开放世界二次元冒险游戏；曾获得过2021 TGA 最佳移动游戏等奖项，2021年获得大满贯；曾多次被国家相关机构点名表扬。</strong></br>它虽然很肝，争议很大，但是承载着我对那年暑假的回忆。</br>它的场景，它的音乐，都把我深深地震撼了。</p>
+                <a href="https://ys.mihoyo.com" ;><button class=" learn-more ">游戏官网</button></a>
+            </div>
+            <div>
+                <h2>Phigros</h2>
+                <img src="https://img.tapimg.com/market/images/2917bbd8fd5c472e6c37e795d8e83678.png" class="p5-img" />
+                <p>( 图片来源：Taptap 如有侵权请联系删除 )</br>这个不太能说是我的热爱吧……刚入坑，佬，菜，带（bushi</p>
+                <a href="https://www.taptap.cn/app/165287" ;><button class=" learn-more ">Get It On Taptap</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://apps.apple.com/cn/app/phigros/id1454809109?ct=Tap165287" ;><button class=" learn-more ">Get It On Appstore</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="p6">
+        <div style="z-index: 2;">
+            <h1>我的团队</h1>
+            <h2>DZB STUDIO 量子游戏工作室</h2>
+            <p>2020年10月1日创建于编程猫社区，现已推出多个游戏及应用。</p>
+            <p>现在由于学业问题，已经基本上不更新了</p>
+            <p>以前有时间的时候就没啥技术力</p>
+            <a href="https://shadiaowd.pages.dev/dzbstudio-website/index.html" ;><button class=" learn-more ">访问官网</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://shequ.codemao.cn/work_shop/4682" ;><button class=" learn-more ">编程猫工作室</button></a>
+
+        </div>
+    </div>
+    <div class="p7">
+        <h1>学习经历</h1>
+        <font color="red">注：部分涉及隐私的内容（如小学、初中）已被隐去。</font>
+        <p>xxxx年，入学xxx学校；</br>xxxx年，从xxxx学校毕业；</br>xxxx年，被xxx初中录取，进入x年级x班……(写不下去了)</br>所以，写了跟没写有什么区别吗？</p>
+    </div>
+    <div class="gengxin">
+        <font>本站持续更新中……</font>
+    </div>
+    <div class="page_end">
+        <p>&copy;2024 ShaDiaowd 部分图片来源于网络 如有侵权请联系删除
+        </p>
+        <p>由 自己 提供技术支持</p>
+    </div>
+</body>
