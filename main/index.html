@@ -9,7 +9,7 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
         @font-face {
             font-family: 'HarmonyOS_Sans_SC';
             /* 自定义字体名称 */
-            src: url('https://112-28-188-71.pd1.123pan.cn:30443/download-cdn.123pan.cn/123-264/69aa5b1b/1627972-0/69aa5b1b2573ec2c2d540e42dcd21108/c-m23?v=5&t=1714716720&s=1714716720758290ce35fd10738e79df430fcdb9c1&r=0ZLEC3&bzc=2&bzs=313832323032333933363a32343639373033363a383236313132383a30&filename=HARMONYOS_SANS_SC_REGULAR.TTF&x-mf-biz-cid=85b30484-e6ea-40b4-a264-4466d847f7d1-47df1e&auto_redirect=0&ndcp=1&cache_type=1&xmfcid=9a928554-1d97-4a47-99df-307033a10323-1-50111d3b1');
+            src: url('HarmonyOS_Sans_SC_Regular.ttf');
             /* 字体文件的相对路径 */
         }
         
@@ -121,6 +121,20 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
             padding-left: 50px;
             padding-right: 50px;
             background-color: black;
+            background-repeat: no-repeat;
+            /* 避免重复 */
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            text-align: center
+        }
+        
+        .p8 {
+            position: relative;
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: hwb(215 0% 0%);
             background-repeat: no-repeat;
             /* 避免重复 */
             background-attachment: fixed;
@@ -340,6 +354,10 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
         <h1>学习经历</h1>
         <font color="red">注：部分涉及隐私的内容（如小学、初中）已被隐去。</font>
         <p>xxxx年，入学xxx学校；</br>xxxx年，从xxxx学校毕业；</br>xxxx年，被xxx初中录取，进入x年级x班……(写不下去了)</br>所以，写了跟没写有什么区别吗？</p>
+    </div>
+    <div class="p8">
+        <h1>我的故事</h1>
+        <p>这东西可能要沉淀一会了，毕竟涉及到很多特效和需要写的地方</p>
     </div>
     <div class="gengxin">
         <font>本站持续更新中……</font>
