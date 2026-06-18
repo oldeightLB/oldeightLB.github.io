@@ -1,12 +1,16 @@
 <!doctype html>
-<!-- 图片链接 https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE2OTY1MTU5NTk5MzFfNWQ5NDNkZTA.png
-https://img.tapimg.com/market/images/2917bbd8fd5c472e6c37e795d8e83678.png
-https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
+<html lang="zh-CN">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./font/result.css">
     <title>ShaDiaowd | 一个普普通通的初中牲</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             margin: 0px;
             font-family: 'HarmonyOS Sans SC';
@@ -16,6 +20,7 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
             color: white;
             text-decoration: none;
         }
+        /* 顶部导航栏 */
         
         .top-bar {
             position: fixed;
@@ -23,156 +28,271 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
             left: 0;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.3);
-            /* 设置背景颜色 */
             color: hsl(0, 0%, 100%);
-            /* 设置文本颜色 */
-            padding: 6px;
-            /* 设置内边距，增加可读性 */
+            padding: 18px 0;
             z-index: 100;
-            /* 控制悬停元素的层级 */
-            border-top: none;
-            /* 移除上边框 */
             backdrop-filter: blur(35px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            min-height: 70px;
         }
         
+        .top-bar .logo {
+            flex: 0 0 auto;
+            padding-left: 20px;
+            font-size: 20px;
+            white-space: nowrap;
+            user-select: none;
+            margin: 0;
+        }
+        /* 移动端菜单按钮 */
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0 20px;
+            line-height: 1;
+            transition: opacity 0.3s ease;
+            outline: none;
+        }
+        
+        .mobile-menu-btn:hover {
+            opacity: 0.7;
+        }
+        /* 导航容器（包含锚点链接、分隔块和外部链接） */
+        
+        .nav-container {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .nav-spacer {
+            flex: 1;
+            display: block;
+        }
+        /* 锚点链接组（居中） */
+        
+        .anchor-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+        }
+        
+        .anchor-group a {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            color: white;
+            font-size: 15px;
+            white-space: nowrap;
+            background-color: transparent;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .anchor-group a:hover {
+            background-color: white;
+            color: black;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* 外部链接组（靠右） */
+        
+        .external-links {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            white-space: nowrap;
+            font-size: 15px;
+        }
+        
+        .external-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .external-links a:hover {
+            opacity: 0.7;
+        }
+        /* 警告横幅样式 */
+        
+        .warning-banner {
+            position: relative;
+            background-color: #8B1A1A;
+            border: 3px solid #4A0000;
+            border-radius: 10px;
+            color: #ffffff;
+            padding: 16px 50px 16px 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 0.5s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .warning-banner .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .warning-banner .close-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        /* 各个板块样式 */
+        
         .p1 {
-            padding-top: 80px;
+            padding-top: 140px;
             padding-left: 50px;
             padding-right: 50px;
             padding-bottom: 50px;
             background-color: black;
-            color: white
+            color: white;
         }
         
         .p2 {
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-color: #484848;
             color: white;
             text-align: center;
         }
         
         .p3 {
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-color: hwb(0 100% 0%);
             color: hsl(0, 0%, 0%);
             text-align: center;
         }
         
         .p4 {
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-color: #5c5c5c;
             color: white;
-            text-align: center
+            text-align: center;
         }
         
         .p5 {
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-image: url('https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE2OTY1MTU5NTk5MzFfNWQ5NDNkZTA.png');
             background-repeat: no-repeat;
-            /* 避免重复 */
             background-attachment: fixed;
             background-size: cover;
             color: white;
-            text-align: center
+            text-align: center;
         }
         
         .p5-content {
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .p5-content-small {
-            text-align: center;
-            display: inline-block;
-            max-width: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            flex: 1 1 400px;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .p5-content-small:hover {
+            transform: translateY(-5px);
         }
         
         .p5-img {
             width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
-            flex: 1;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
         
         .p5-text {
-            flex: 1;
             text-align: center;
+            margin: 15px 0;
+            line-height: 1.6;
         }
         
         .p6 {
             position: relative;
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-image: url('https://uploads.sxlcdn.com/static/backgrounds/nature/190.jpg');
             background-repeat: no-repeat;
-            /* 避免重复 */
             background-attachment: fixed;
             background-size: cover;
             color: white;
-            text-align: left
+            text-align: left;
         }
         
         .p7 {
             position: relative;
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-color: black;
-            background-repeat: no-repeat;
-            /* 避免重复 */
-            background-attachment: fixed;
-            background-size: cover;
             color: white;
-            text-align: center
+            text-align: center;
         }
         
         .p8 {
             position: relative;
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 30px 50px;
             background-color: hwb(215 0% 0%);
-            background-repeat: no-repeat;
-            /* 避免重复 */
-            background-attachment: fixed;
-            background-size: cover;
             color: white;
-            text-align: center
+            text-align: center;
         }
         
         .gengxin {
-            position: relative;
-            padding: 10px;
-            padding-left: 25px;
-            padding-right: 10px;
+            padding: 10px 25px;
             background-color: hsl(0, 0%, 33%);
-            background-repeat: no-repeat;
-            /* 避免重复 */
-            background-attachment: fixed;
-            background-size: cover;
             color: white;
             text-align: center;
         }
         
         .page_end {
-            position: relative;
-            padding: 10px;
-            padding-left: 25px;
-            padding-right: 10px;
+            padding: 10px 25px;
             background-color: #464646;
-            background-repeat: no-repeat;
-            /* 避免重复 */
-            background-attachment: fixed;
-            background-size: cover;
             color: white;
             text-align: left;
             font-size: 14px;
@@ -188,87 +308,228 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
             border: none;
             transition: all 0.3s ease;
             font-family: HarmonyOS_Sans_SC;
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
         }
         
         .learn-more:hover {
             transform: translateY(-6.6px);
-            /* 上移 5 像素 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         .projects {
             text-align: left;
-            border: 0.3px solid hsl(0, 0%, 70%);
-            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
             display: inline-block;
-            padding: 15px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin: 13px;
-            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
-            transition: transform 0.3s ease;
+            padding: 15px 20px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            vertical-align: top;
+            width: 280px;
         }
         
         .projects:hover {
             transform: translateY(-6.6px);
-            /* 上移 5 像素 */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .projectname {
             color: hwb(215 0% 0%);
-            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
         
         .projectin {
-            color: black;
-            margin-top: -10px;
+            color: #333;
+            margin-top: 5px;
         }
-        /* AI生成的代码 */
+        /* Firefox 等非 Chrome 浏览器的模糊降级 */
         
-        .image {
-            flex: 1;
-            max-width: 50%;
+        .no-backdrop-filter .top-bar {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: none;
         }
-        /* AI代码结束 */
         
-        .act {
-            text-align: center;
-            background-image: url('./febg.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            margin-top: -80px;
-            margin-left: -50px;
-            margin-right: -50px;
-            /* 避免重复 */
+        .no-backdrop-filter .p5-content-small {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: none;
+        }
+        
+        .no-backdrop-filter .projects {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: none;
+        }
+        /* 移动端响应式设计 */
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            /* 移动端将 nav-container 改为绝对定位下拉菜单 */
+            .nav-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(20px);
+                padding: 20px;
+                flex-direction: column;
+                gap: 10px;
+                z-index: 99;
+                box-sizing: border-box;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            }
+            .nav-container.active {
+                display: flex;
+            }
+            .nav-spacer {
+                display: none;
+            }
+            .anchor-group {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+            }
+            .anchor-group a {
+                display: block;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 30px;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            .anchor-group a:hover {
+                background-color: white;
+                color: black;
+                transform: none;
+            }
+            .external-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                margin-top: 10px;
+            }
+            .external-links a {
+                font-size: 14px;
+            }
+            /* 板块内边距调整 */
+            .p1,
+            .p2,
+            .p3,
+            .p4,
+            .p5,
+            .p6,
+            .p7,
+            .p8 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .p1 {
+                padding-top: 120px;
+            }
+            .projects {
+                width: calc(100% - 40px);
+                margin: 10px 20px;
+            }
+            /* 游戏板块移动端优化 */
+            .p5-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .p5-content-small {
+                max-width: 100%;
+                flex: 1 1 auto;
+                width: 100%;
+                padding: 20px;
+            }
+            .p5-img {
+                max-height: 250px;
+                object-fit: cover;
+            }
+            .warning-banner {
+                font-size: 13px;
+                padding: 12px 40px 12px 15px;
+            }
+            .learn-more {
+                font-size: 16px;
+                padding: 8px 24px;
+            }
+            /* 移动端降级样式 */
+            .no-backdrop-filter .nav-container {
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-bar .logo {
+                font-size: 18px;
+                padding-left: 15px;
+            }
+            .mobile-menu-btn {
+                font-size: 26px;
+                padding: 0 15px;
+            }
+            .p5-content-small {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="top-bar" style="display: flex;">
-        <h3 class="logo">&nbsp;&nbsp;&nbsp;ShaDiaowd</h3>
-        <p style="margin-left: auto;margin-right: 50px;margin-top: 20px;"><a href="https://space.bilibili.com/2132118529">BiliBili</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://GitHub.com/OldeightLB">GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://blog.shadiaowd.us.kg">↗访问博客</a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="alert('Only Chinese is support. - 该页面仅支持中文。')">🌏</a></p>
-    </div>
-    <div class="p1">
-        <div class="act">
-            <div class="act-cont">
-                <img src="./fe.svg" style="height: 40%;width: 40%;margin-top: 150px;margin-bottom: 70px"></img>
+    <div class="top-bar">
+        <h3 class="logo">ShaDiaowd</h3>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">☰</button>
+        <div class="nav-container" id="navContainer">
+            <span class="nav-spacer"></span>
+            <div class="anchor-group">
+                <a href="#about">关于我</a>
+                <a href="#hobbies">我的兴趣爱好</a>
+                <a href="#projects">我的项目</a>
+                <a href="#honors">我的荣誉</a>
+                <a href="#games">我的游戏</a>
+                <a href="#team">我的团队</a>
+                <a href="#education">学习经历</a>
+                <a href="#story">我的故事</a>
             </div>
+            <span class="nav-spacer"></span>
+            <div class="external-links">
+                <a href="https://space.bilibili.com/2132118529">BiliBili</a>
+                <a href="https://GitHub.com/OldeightLB">GitHub</a>
+                <a href="https://blog.shadiaowd.us.kg">↗访问博客</a>
+                <a onclick="alert('Only Chinese is support. - 该页面仅支持中文。')" style="cursor:pointer;">🌏</a>
+            </div>
+        </div>
+    </div>
 
+    <div class="p1" id="about">
+        <div class="warning-banner" id="warningBanner">
+            <button class="close-btn" onclick="document.getElementById('warningBanner').style.display='none';" title="关闭">✕</button>
+            <strong>⚠ 提示：</strong>由于学业繁忙，临近中考，网站停止运营。该网站目前最后更新日期截止至2025年初及之前，无时效性。此外，网名"ShaDiaowd"与任何真实人物、事件、组织均无关联，起名时间为2021而非2026年2月以后，请谨慎甄别，适度玩梗。
         </div>
         <h1 style="font-size: 50px;margin-bottom: -5px;">ShaDiaowd</h1>
-        <p>一个普普通通的初中牲，算不上是 bilibili up主，miHoYo狂热玩家（低情商：魔怔），花粉</br>成绩在班级中游上下浮动，体育不好（bushi</br>现就读于广东省某不知名学校</p>
+        <p>一个普普通通的初中牲，算不上是 bilibili up主，miHoYo狂热玩家（低情商：魔怔），花粉<br>成绩在班级中游上下浮动，体育不好（bushi<br>现就读于广东省某不知名学校</p>
         <a href="https://space.bilibili.com/2132118529"><button class="learn-more">了解更多</button></a>
     </div>
-    <div class="p2">
+
+    <div class="p2" id="hobbies">
         <h1>我的兴趣爱好</h1>
-        <p>既然我都做出这个网站了，那说明什么？（虽然HTML是标记语言）</br>2020年，一次偶然的机会，我接触到了编程；然后我就开始学习编程</br>现在，我已经学会了Kitten、Python等编程语言（JavaSprict：从入门到放弃）</p>
+        <p>既然我都做出这个网站了，那说明什么？（虽然HTML是标记语言）<br>2020年，一次偶然的机会，我接触到了编程；然后我就开始学习编程<br>现在，我已经学会了Kitten、Python等编程语言（JavaSprict：从入门到放弃）</p>
         <p>同时也会一点点视频剪辑，Photoshop</p>
         <p>不太会唱歌，有点五音不全</p>
         <p>不太算是二次元吧 就是比较喜欢玩miHoYo的游戏，但是那颗麒麟990和那张MX350有点不够用</p>
     </div>
-    <div class="p3">
+
+    <div class="p3" id="projects">
         <h1>我的项目</h1>
         <p>一些比较老的项目就不端上来了，这些都是一些新的项目（网站可能没有时间维护，更新日期截止至2024/5/2）</p>
         <div class="projects">
@@ -283,7 +544,7 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
                 <p class="projectin">基于ReportLab完全免费开源的命令行PDF编辑工具</p>
             </a>
         </div>
-        </br>
+        <br>
         <div class="projects">
             <a href="https://ShaDiaowd.pages.dev/luping_preview">
                 <p class="projectname">网站：DZB在线屏幕录制工具（2.0）</p>
@@ -333,13 +594,15 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
             </a>
         </div>
     </div>
-    <div class="p4">
+
+    <div class="p4" id="honors">
         <h1>我的荣誉</h1>
         <p>这东西可不能张扬啊……</p>
         <p>此处不公开，此处不公开，此处不公开！！</p>
-        <a onclick="alert('你搁这干啥嘞，都说了不公开！！！！（作者ip属地：广东）')" ;><button class=" learn-more ">了解更多</button></a>
+        <a onclick="alert('你搁这干啥嘞，都说了不公开！！！！（作者ip属地：广东）')"><button class="learn-more">了解更多</button></a>
     </div>
-    <div class="p5">
+
+    <div class="p5" id="games">
         <h1>我的游戏</h1>
         <p>由于图片较大，所以看上去可能花了较大篇幅，实际上不大的啊</p>
         <p>除特别说明外，以下引用的网站均为中国站。</p>
@@ -347,57 +610,106 @@ https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png -->
         <div class="p5-content">
             <div class="p5-content-small">
                 <h2>崩坏：星穹铁道</h2>
-                <img src="https://upload-bbs.miyoushe.com/upload/2024/04/25/288909600/b8d091dac36984850dfffede8f6b5eb9_1716960016487460846.png" class="p5-img" />
-                <p class="p5-text">( 图片来源：米游社 崩坏星穹铁道官方账号 如有侵权请联系删除 )</br><strong>由米哈游自研的银河冒险策略回合制RPG；曾获得过2023 TGA 最佳移动游戏等奖项，2023年获得大满贯。</strong></br>个人认为，是一款角色塑造全国顶尖；技术力超强；剧情值得三刷的二次元RPG游戏。</br>该游戏配乐质量极好，曾多次被新华社B站账号引用。</br>怎么说呢，遥遥领先于企鹅</br>这里不太适合说缺点，就不说了</p>
-                <a class="p5-text" href="https://sr.mihoyo.com" ;><button class=" learn-more ">游戏官网</button></a>
+                <img src="https://upload-bbs.miyoushe.com/upload/2024/04/25/288909600/b8d091dac36984850dfffede8f6b5eb9_1716960016487460846.png" class="p5-img" alt="崩坏星穹铁道" />
+                <p class="p5-text">( 图片来源：米游社 崩坏星穹铁道官方账号 如有侵权请联系删除 )<br><strong>由米哈游自研的银河冒险策略回合制RPG；曾获得过2023 TGA 最佳移动游戏等奖项，2023年获得大满贯。</strong><br>个人认为，是一款角色塑造全国顶尖；技术力超强；剧情值得三刷的二次元RPG游戏。<br>该游戏配乐质量极好，曾多次被新华社B站账号引用。<br>怎么说呢，遥遥领先于企鹅<br>这里不太适合说缺点，就不说了</p>
+                <a class="p5-text" href="https://sr.mihoyo.com"><button class="learn-more">游戏官网</button></a>
             </div>
             <div class="p5-content-small">
                 <h2>原神</h2>
-                <img src="https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png" class="p5-img" />
-                <p class="p5-text">( 图片来源：《原神》官方网站 如有侵权请联系删除 )</br><strong>米哈游开放世界二次元冒险游戏；曾获得过2021 TGA 最佳移动游戏等奖项，2021年获得大满贯；曾多次被国家相关机构点名表扬。</strong></br>它虽然很肝，争议很大，但是承载着我对那年暑假的回忆。</br>它的场景，它的音乐，都把我深深地震撼了。</p>
-                <a href="https://ys.mihoyo.com" class="p5-text"><button class=" learn-more ">游戏官网</button></a>
+                <img src="https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png" class="p5-img" alt="原神" />
+                <p class="p5-text">( 图片来源：《原神》官方网站 如有侵权请联系删除 )<br><strong>米哈游开放世界二次元冒险游戏；曾获得过2021 TGA 最佳移动游戏等奖项，2021年获得大满贯；曾多次被国家相关机构点名表扬。</strong><br>它虽然很肝，争议很大，但是承载着我对那年暑假的回忆。<br>它的场景，它的音乐，都把我深深地震撼了。</p>
+                <a href="https://ys.mihoyo.com" class="p5-text"><button class="learn-more">游戏官网</button></a>
             </div>
             <div class="p5-content-small">
                 <h2>Minecraft</h2>
-                <img src="https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE3MTQ2OTE4MzYzODBfMDQxNGU2NTk.png" class="p5-img" />
-                <p>( 图片来源：《Minecraft》国际官网 如有侵权请联系删除 )</br><strong>可能是全球最畅销的沙盒游戏。</strong></br>从很久以前玩到现在的，现在似乎已经成为我人生中的一部分了（？）</br>它承载着对童年的回忆，也是一个无法超越的神作（暗示mini）。</br>冈易版做的跟*一样</p>
-                <a href="https://minecraft.net" class="p5-text"><button class=" learn-more ">游戏官网（国际站）</button></a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mc.163.com" ;><button class=" learn-more ">游戏官网（中国站）</button></a>
+                <img src="https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE3MTQ2OTE4MzYzODBfMDQxNGU2NTk.png" class="p5-img" alt="Minecraft" />
+                <p>( 图片来源：《Minecraft》国际官网 如有侵权请联系删除 )<br><strong>可能是全球最畅销的沙盒游戏。</strong><br>从很久以前玩到现在的，现在似乎已经成为我人生中的一部分了（？）<br>它承载着对童年的回忆，也是一个无法超越的神作（暗示mini）。<br>冈易版做的跟*一样</p>
+                <a href="https://minecraft.net" class="p5-text"><button class="learn-more">游戏官网（国际站）</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mc.163.com"><button class="learn-more">游戏官网（中国站）</button></a>
             </div>
             <div class="p5-content-small">
                 <h2>Phigros</h2>
-                <img src="static/phi.webp" class="p5-img" />
-                <p class="p5-text">( 图片来源：Taptap 如有侵权请联系删除 )</br>这个不太能说是……刚入坑，佬，菜，带（bushi</p>
-                <a href="https://www.taptap.cn/app/165287" class="p5-text"><button class=" learn-more ">Get It On Taptap</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://apps.apple.com/cn/app/phigros/id1454809109?ct=Tap165287" class="p5-text"><button class=" learn-more ">Get It On Appstore</button></a>
+                <img src="static/phi.webp" class="p5-img" alt="Phigros" />
+                <p class="p5-text">( 图片来源：Taptap 如有侵权请联系删除 )<br>这个不太能说是……刚入坑，佬，菜，带（bushi</p>
+                <a href="https://www.taptap.cn/app/165287" class="p5-text"><button class="learn-more">Get It On Taptap</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://apps.apple.com/cn/app/phigros/id1454809109?ct=Tap165287" class="p5-text"><button class="learn-more">Get It On Appstore</button></a>
             </div>
         </div>
     </div>
-    <div class="p6">
+
+    <div class="p6" id="team">
         <div style="z-index: 2;">
             <h1>我的团队</h1>
             <h2>DZB STUDIO 量子游戏工作室</h2>
             <p>2020年10月1日创建于编程猫社区，现已推出多个游戏及应用。</p>
             <p>现在由于学业问题，已经基本上不更新了</p>
             <p>以前有时间的时候就没啥技术力</p>
-            <a href="https://shadiaowd.pages.dev/dzbstudio-website/index.html" ;><button class=" learn-more ">访问官网</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://shequ.codemao.cn/work_shop/4682" ;><button class=" learn-more ">编程猫工作室</button></a>
-
+            <a href="https://shadiaowd.pages.dev/dzbstudio-website/index.html"><button class="learn-more">访问官网</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://shequ.codemao.cn/work_shop/4682"><button class="learn-more">编程猫工作室</button></a>
         </div>
     </div>
-    <div class="p7">
+
+    <div class="p7" id="education">
         <h1>学习经历</h1>
         <font color="red">注：部分涉及隐私的内容（如小学、初中）已被隐去。</font>
-        <p>xxxx年，入学xxx学校；</br>xxxx年，从xxxx学校毕业；</br>xxxx年，被xxx初中录取，进入x年级x班……(写不下去了)</br>所以，写了跟没写有什么区别吗？</p>
+        <p>xxxx年，入学xxx学校；<br>xxxx年，从xxxx学校毕业；<br>xxxx年，被xxx初中录取，进入x年级x班……(写不下去了)<br>所以，写了跟没写有什么区别吗？</p>
     </div>
-    <div class="p8">
+
+    <div class="p8" id="story">
         <h1>我的故事</h1>
         <p>这东西可能要沉淀一会了，毕竟涉及到很多特效和需要写的地方</p>
     </div>
+
     <div class="gengxin">
         <font>本站持续更新中……</font>
     </div>
     <div class="page_end">
-        <p>&copy;2024 ShaDiaowd 部分图片来源于网络 如有侵权请联系删除
-        </p>
+        <p>&copy;2024 ShaDiaowd 部分图片来源于网络 如有侵权请联系删除</p>
         <p>由 自己 提供技术支持</p>
     </div>
+
+    <script>
+        (function() {
+            // 1. 移动端菜单交互
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const navContainer = document.getElementById('navContainer');
+
+            if (menuBtn && navContainer) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navContainer.classList.toggle('active');
+                });
+
+                // 点击导航链接后自动关闭菜单
+                const navLinks = navContainer.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 768) {
+                            navContainer.classList.remove('active');
+                        }
+                    });
+                });
+
+                // 点击其他区域关闭菜单
+                document.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768 && !navContainer.contains(e.target) && e.target !== menuBtn) {
+                        navContainer.classList.remove('active');
+                    }
+                });
+            }
+
+            // 2. 窗口大小变化时重置菜单状态
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navContainer) {
+                    navContainer.classList.remove('active');
+                }
+            });
+
+            // 3. 检测非 Chrome 浏览器，启用模糊降级
+            const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+            if (!isChrome) {
+                document.documentElement.classList.add('no-backdrop-filter');
+            }
+        })();
+    </script>
 </body>
+
+</html>

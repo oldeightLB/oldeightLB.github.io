@@ -1,0 +1,762 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaDiaowd | 一个普普通通的初中牲</title>
+    <style>
+        /* 字体引入 */
+        
+        @font-face {
+            font-family: 'HarmonyOS Sans SC';
+            src: url('./font/result.css') format('truetype');
+            /* Adjust path and format if needed */
+            font-weight: normal;
+            font-style: normal;
+        }
+        /* 基础样式 */
+        
+        body {
+            margin: 0;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+            scroll-behavior: smooth;
+            /* 启用平滑滚动 */
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        /* 顶部导航栏 */
+        
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            padding: 6px 20px;
+            /* 增加左右内边距 */
+            z-index: 1000;
+            /* 提高层级 */
+            backdrop-filter: blur(35px);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            margin: 0;
+            font-size: 20px;
+            /* 可根据需要调整logo大小 */
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+            /* 增加链接间距 */
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            /* 增大字体 */
+            white-space: nowrap;
+            /* 防止链接文字换行 */
+        }
+        /* 移动端汉堡菜单按钮 (默认隐藏) */
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: center;
+        }
+        /* 主要内容区域 */
+        
+        .main-content {
+            margin-top: 60px;
+            /* 为固定导航栏留出空间 */
+        }
+        /* 各板块通用样式 */
+        
+        .section {
+            padding: 30px 100px;
+            /* 增加左右padding */
+            box-sizing: border-box;
+        }
+        
+        .section h1 {
+            margin-top: 0;
+        }
+        /* 第一板块 - 个人介绍 */
+        
+        .p1 {
+            padding-top: 80px;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 50px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        
+        .act {
+            margin: -80px -100px 20px -100px;
+            /* 调整负边距匹配padding */
+            background-image: url('./febg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .act img {
+            height: 40%;
+            width: 40%;
+            margin: 70px 0;
+        }
+        
+        .p1 h1 {
+            font-size: 50px;
+            margin-bottom: -5px;
+        }
+        
+        .p1 p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        /* 第二板块 - 兴趣爱好 */
+        
+        .p2 {
+            background-color: #484848;
+            color: white;
+            text-align: center;
+        }
+        /* 第三板块 - 我的项目 */
+        
+        .p3 {
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            /* 增加项目卡片间距 */
+        }
+        
+        .projects {
+            text-align: left;
+            border: 0.3px solid hsl(0, 0%, 70%);
+            border-radius: 10px;
+            padding: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
+            transition: transform 0.3s ease;
+            background-color: white;
+            width: calc(33.333% - 20px);
+            /* 三列布局 */
+            box-sizing: border-box;
+        }
+        
+        .projects:hover {
+            transform: translateY(-6.6px);
+        }
+        
+        .projectname {
+            color: hwb(215 0% 0%);
+            /* #0055ff */
+            display: inline-block;
+            margin: 5px 0;
+        }
+        
+        .projectin {
+            color: black;
+            margin-top: -10px;
+            font-size: 14px;
+        }
+        /* 第四板块 - 我的荣誉 */
+        
+        .p4 {
+            background-color: #5c5c5c;
+            color: white;
+            text-align: center;
+        }
+        /* 第五板块 - 我的游戏 */
+        
+        .p5 {
+            background-image: url('https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE2OTY1MTU5NTk5MzFfNWQ5NDNkZTA.png');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            /* 移动端通常设为scroll */
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .p5-content {
+            text-align: center;
+        }
+        
+        .p5-content-small {
+            text-align: center;
+            display: inline-block;
+            width: calc(50% - 30px);
+            /* 桌面端两列 */
+            max-width: 100%;
+            margin-bottom: 30px;
+            vertical-align: top;
+            margin-left: 15px;
+            margin-right: 15px;
+            box-sizing: border-box;
+        }
+        
+        .p5-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 10px 10px rgba(36, 36, 36, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .p5-text {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 15px auto;
+            font-size: 14px;
+        }
+        
+        .p5-text strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* 第六板块 - 我的团队 */
+        
+        .p6 {
+            background-image: url('https://uploads.sxlcdn.com/static/backgrounds/nature/190.jpg');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        /* 第七板块 - 学习经历 */
+        
+        .p7 {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        /* 第八板块 - 我的故事 */
+        
+        .p8 {
+            background-color: hwb(215 0% 0%);
+            /* #0055ff */
+            color: white;
+            text-align: center;
+        }
+        /* 更新提示 */
+        
+        .gengxin {
+            background-color: hsl(0, 0%, 33%);
+            /* #545454 */
+            color: white;
+            text-align: center;
+            padding: 10px 25px;
+        }
+        /* 页脚 */
+        
+        .page_end {
+            background-color: #464646;
+            color: white;
+            text-align: left;
+            font-size: 14px;
+            padding: 10px 25px;
+        }
+        /* 按钮样式 */
+        
+        .learn-more {
+            border-radius: 900px;
+            padding: 10px 30px;
+            margin-top: 8px;
+            font-size: 18px;
+            background-color: white;
+            color: black;
+            border: none;
+            transition: all 0.3s ease;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+            cursor: pointer;
+        }
+        
+        .learn-more:hover {
+            transform: translateY(-6.6px);
+        }
+        /* 响应式设计 - 平板 */
+        
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .top-bar {
+                padding: 6px 15px;
+            }
+            .nav-links li {
+                margin: 0 10px;
+            }
+            .nav-links a {
+                font-size: 14px;
+            }
+            .section {
+                padding: 30px 50px;
+            }
+            .p1 {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .act {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .p5-content-small {
+                width: calc(50% - 20px);
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .projects {
+                width: calc(50% - 20px);
+                /* 平板端两列 */
+            }
+        }
+        /* 响应式设计 - 移动端 */
+        
+        @media (max-width: 767px) {
+            .top-bar {
+                padding: 6px 15px;
+                /* 移动端内边距 */
+            }
+            .logo {
+                font-size: 18px;
+            }
+            /* 显示汉堡菜单按钮 */
+            .menu-toggle {
+                display: flex;
+            }
+            /* 隐藏导航链接 */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                clip-path: circle(0px at 90% -10%);
+                /* 初始状态：圆形遮罩，半径为0 */
+                -webkit-clip-path: circle(0px at 90% -10%);
+                transition: all 0.5s ease-out;
+                pointer-events: none;
+                /* 初始不可点击 */
+            }
+            /* 激活状态：展开菜单 */
+            .nav-links.active {
+                clip-path: circle(1500px at 90% -10%);
+                /* 展开状态：大半径圆形遮罩 */
+                -webkit-clip-path: circle(1500px at 90% -10%);
+                pointer-events: all;
+                /* 激活后可点击 */
+            }
+            .nav-links li {
+                margin: 20px 0;
+                /* 增加垂直间距 */
+                opacity: 0;
+                /* 初始隐藏 */
+                transform: translateY(-20px);
+                /* 初始位置上移 */
+                animation: fadeIn 0.5s ease forwards;
+                /* 淡入动画 */
+                animation-delay: calc(0.1s * var(--i));
+                /* 延迟动画 */
+            }
+            /* 汉堡菜单动画 */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .nav-links a {
+                font-size: 24px;
+                /* 增大移动端字体 */
+            }
+            .section {
+                padding: 20px 20px;
+                /* 移动端减小padding */
+            }
+            .p1 {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 60px;
+            }
+            .act {
+                margin-left: -20px;
+                margin-right: -20px;
+                height: 250px;
+            }
+            .act img {
+                height: 30%;
+                width: 30%;
+                margin: 40px 0;
+            }
+            .p1 h1 {
+                font-size: 36px;
+            }
+            .p1 p,
+            .p2 p,
+            .p3 p,
+            .p4 p,
+            .p5 p,
+            .p6 p,
+            .p7 p,
+            .p8 p,
+            .p5-text {
+                font-size: 14px;
+            }
+            .learn-more {
+                padding: 8px 20px;
+                font-size: 16px;
+            }
+            .projects {
+                width: 100%;
+                /* 移动端单列 */
+            }
+            .p5-content-small {
+                width: 100%;
+                /* 移动端单列 */
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .p5-img {
+                max-width: 100%;
+                /* 图片自适应 */
+            }
+        }
+        /* 针对非常小的屏幕进行优化 */
+        
+        @media (max-width: 480px) {
+            .top-bar {
+                padding: 4px 10px;
+            }
+            .logo {
+                font-size: 16px;
+            }
+            .nav-links a {
+                font-size: 20px;
+            }
+            .section {
+                padding: 15px 15px;
+            }
+            .p1 {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 50px;
+            }
+            .act {
+                margin-left: -15px;
+                margin-right: -15px;
+                height: 200px;
+            }
+            .act img {
+                height: 25%;
+                width: 25%;
+                margin: 30px 0;
+            }
+            .p1 h1 {
+                font-size: 30px;
+            }
+            .p1 p,
+            .p2 p,
+            .p3 p,
+            .p4 p,
+            .p5 p,
+            .p6 p,
+            .p7 p,
+            .p8 p,
+            .p5-text {
+                font-size: 13px;
+            }
+            .learn-more {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部导航栏 -->
+    <div class="top-bar">
+        <h3 class="logo">ShaDiaowd</h3>
+        <!-- 汉堡菜单按钮 -->
+        <button class="menu-toggle" aria-label="切换导航菜单">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- 导航链接 -->
+        <ul class="nav-links">
+            <li style="--i:1;"><a href="#about">关于我</a></li>
+            <li style="--i:2;"><a href="#hobbies">兴趣</a></li>
+            <li style="--i:3;"><a href="#projects">项目</a></li>
+            <li style="--i:4;"><a href="#honors">荣誉</a></li>
+            <li style="--i:5;"><a href="#games">游戏</a></li>
+            <li style="--i:6;"><a href="#team">团队</a></li>
+            <li style="--i:7;"><a href="#education">经历</a></li>
+            <li style="--i:8;"><a href="#story">故事</a></li>
+            <li style="--i:9;"><a href="https://space.bilibili.com/2132118529">BiliBili</a></li>
+            <li style="--i:10;"><a href="https://GitHub.com/OldeightLB">GitHub</a></li>
+            <li style="--i:11;"><a href="https://blog.shadiaowd.us.kg">↗博客</a></li>
+            <li style="--i:12;"><a onclick="alert('Only Chinese is support. - 该页面仅支持中文。')">🌏</a></li>
+        </ul>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content">
+
+        <!-- 第一板块 - 个人介绍 -->
+        <div id="about" class="section p1">
+            <div class="act">
+                <div class="act-cont">
+                    <img src="./fe.svg" alt="Logo">
+                </div>
+            </div>
+            <h1 style="font-size: 50px;margin-bottom: -5px;">ShaDiaowd</h1>
+            <p>一个普普通通的初中牲，算不上是 bilibili up主，miHoYo狂热玩家（低情商：魔怔），花粉</br>成绩在班级中游上下浮动，体育不好（bushi</br>现就读于广东省某不知名学校</p>
+            <a href="https://space.bilibili.com/2132118529"><button class="learn-more">了解更多</button></a>
+        </div>
+
+        <!-- 第二板块 - 兴趣爱好 -->
+        <div id="hobbies" class="section p2">
+            <h1>我的兴趣爱好</h1>
+            <p>既然我都做出这个网站了，那说明什么？（虽然HTML是标记语言）</br>2020年，一次偶然的机会，我接触到了编程；然后我就开始学习编程</br>现在，我已经学会了Kitten、Python等编程语言（JavaSprict：从入门到放弃）</p>
+            <p>同时也会一点点视频剪辑，Photoshop</p>
+            <p>不太会唱歌，有点五音不全</p>
+            <p>不太算是二次元吧 就是比较喜欢玩miHoYo的游戏，但是那颗麒麟990和那张MX350有点不够用</p>
+        </div>
+
+        <!-- 第三板块 - 我的项目 -->
+        <div id="projects" class="section p3">
+            <h1>我的项目</h1>
+            <p>一些比较老的项目就不端上来了，这些都是一些新的项目（网站可能没有时间维护，更新日期截止至2024/5/2）</p>
+            <div class="projects-container">
+                <div class="projects">
+                    <a href="">
+                        <p class="projectname">（开发中）游戏：HeartArea</p>
+                        <p class="projectin">2D像素风RPG动作剧情游戏</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="">
+                        <p class="projectname">（开发中）软件：CMDPDF</p>
+                        <p class="projectin">基于ReportLab完全免费开源的命令行PDF编辑工具</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="https://ShaDiaowd.pages.dev/luping_preview">
+                        <p class="projectname">网站：DZB在线屏幕录制工具（2.0）</p>
+                        <p class="projectin">基于傲软录屏API的屏幕录制工具，完全免费</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="https://ShaDiaowd.pages.dev/luping_preview">
+                        <p class="projectname">网站：ShaDiaowd's Blog</p>
+                        <p class="projectin">重新设计的博客网站。</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="">
+                        <p class="projectname">动漫：《星穹铁道：前传》重制版</p>
+                        <p class="projectin">重制版的意思是第一稿废了，就没打算做，只是一闪而过的念头</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="https://github.com/OldeightLB/starward">
+                        <p class="projectname">翻译作品：BetterStarWard</p>
+                        <p class="projectin">翻完了，但是C++不会编译</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="https://github.com/OldeightLB/starward">
+                        <p class="projectname">游戏：代号：契机</p>
+                        <p class="projectin">大型开放世界RPG，也是一闪而过的念头，不做</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="">
+                        <p class="projectname">Minecraft服务器：IKUN 生存服务器</p>
+                        <p class="projectin">由于云服务商服务变动，存档已丢失，最后一次备份在春节，目前已停服</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="">
+                        <p class="projectname">Minecraft地图：茨冈尼亚-VI</p>
+                        <p class="projectin">打算用低版本做了 高版本超平坦shi一样</p>
+                    </a>
+                </div>
+                <div class="projects">
+                    <a href="https://shadiaowd.pages.dev/dbsxapp/index.html">
+                        <p class="projectname">软件：待办事项手机APP</p>
+                        <p class="projectin">由于云服务商服务变动及备案问题，目前已停更</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第四板块 - 我的荣誉 -->
+        <div id="honors" class="section p4">
+            <h1>我的荣誉</h1>
+            <p>这东西可不能张扬啊……</p>
+            <p>此处不公开，此处不公开，此处不公开！！</p>
+            <a onclick="alert('你搁这干啥嘞，都说了不公开！！！！（作者ip属地：广东）')"><button class=" learn-more ">了解更多</button></a>
+        </div>
+
+        <!-- 第五板块 - 我的游戏 -->
+        <div id="games" class="section p5">
+            <h1>我的游戏</h1>
+            <p>由于图片较大，所以看上去可能花了较大篇幅，实际上不大的啊</p>
+            <p>除特别说明外，以下引用的网站均为中国站。</p>
+            <p>有时间再去加上zzz</p>
+            <div class="p5-content">
+                <div class="p5-content-small">
+                    <h2>崩坏：星穹铁道</h2>
+                    <img src="https://upload-bbs.miyoushe.com/upload/2024/04/25/288909600/b8d091dac36984850dfffede8f6b5eb9_1716960016487460846.png" class="p5-img" alt="崩坏：星穹铁道">
+                    <p class="p5-text">( 图片来源：米游社 崩坏星穹铁道官方账号 如有侵权请联系删除 )<br><strong>由米哈游自研的银河冒险策略回合制RPG；曾获得过2023 TGA 最佳移动游戏等奖项，2023年获得大满贯。</strong><br>个人认为，是一款角色塑造全国顶尖；技术力超强；剧情值得三刷的二次元RPG游戏。<br>该游戏配乐质量极好，曾多次被新华社B站账号引用。<br>怎么说呢，遥遥领先于企鹅<br>这里不太适合说缺点，就不说了</p>
+                    <a class="p5-text" href="https://sr.mihoyo.com"><button class=" learn-more ">游戏官网</button></a>
+                </div>
+                <div class="p5-content-small">
+                    <h2>原神</h2>
+                    <img src="https://uploadstatic.mihoyo.com/contentweb/20200319/2020031910400027780.png" class="p5-img" alt="原神">
+                    <p class="p5-text">( 图片来源：《原神》官方网站 如有侵权请联系删除 )<br><strong>米哈游开放世界二次元冒险游戏；曾获得过2021 TGA 最佳移动游戏等奖项，2021年获得大满贯；曾多次被国家相关机构点名表扬。</strong><br>它虽然很肝，争议很大，但是承载着我对那年暑假的回忆。<br>它的场景，它的音乐，都把我深深地震撼了。</p>
+                    <a href="https://ys.mihoyo.com" class="p5-text"><button class=" learn-more ">游戏官网</button></a>
+                </div>
+                <div class="p5-content-small">
+                    <h2>Minecraft</h2>
+                    <img src="https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfOTE1Mzg1NV8wXzE3MTQ2OTE4MzYzODBfMDQxNGU2NTk.png" class="p5-img" alt="Minecraft">
+                    <p>( 图片来源：《Minecraft》国际官网 如有侵权请联系删除 )<br><strong>可能是全球最畅销的沙盒游戏。</strong><br>从很久以前玩到现在的，现在似乎已经成为我人生中的一部分了（？）<br>它承载着对童年的回忆，也是一个无法超越的神作（暗示mini）。<br>冈易版做的跟*一样</p>
+                    <a href="https://minecraft.net" class="p5-text"><button class=" learn-more ">游戏官网（国际站）</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mc.163.com"><button class=" learn-more ">游戏官网（中国站）</button></a>
+                </div>
+                <div class="p5-content-small">
+                    <h2>Phigros</h2>
+                    <img src="static/phi.webp" class="p5-img" alt="Phigros">
+                    <p class="p5-text">( 图片来源：Taptap 如有侵权请联系删除 )<br>这个不太能说是……刚入坑，佬，菜，带（bushi</p>
+                    <a href="https://www.taptap.cn/app/165287" class="p5-text"><button class=" learn-more ">Get It On Taptap</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://apps.apple.com/cn/app/phigros/id1454809109?ct=Tap165287" class="p5-text"><button class=" learn-more ">Get It On Appstore</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第六板块 - 我的团队 -->
+        <div id="team" class="section p6">
+            <div style="z-index: 2;">
+                <h1>我的团队</h1>
+                <h2>DZB STUDIO 量子游戏工作室</h2>
+                <p>2020年10月1日创建于编程猫社区，现已推出多个游戏及应用。</p>
+                <p>现在由于学业问题，已经基本上不更新了</p>
+                <p>以前有时间的时候就没啥技术力</p>
+                <a href="https://shadiaowd.pages.dev/dzbstudio-website/index.html"><button class=" learn-more ">访问官网</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://shequ.codemao.cn/work_shop/4682"><button class=" learn-more ">编程猫工作室</button></a>
+            </div>
+        </div>
+
+        <!-- 第七板块 - 学习经历 -->
+        <div id="education" class="section p7">
+            <h1>学习经历</h1>
+            <font color="red">注：部分涉及隐私的内容（如小学、初中）已被隐去。</font>
+            <p>xxxx年，入学xxx学校；</br>xxxx年，从xxxx学校毕业；</br>xxxx年，被xxx初中录取，进入x年级x班……(写不下去了)</br>所以，写了跟没写有什么区别吗？</p>
+        </div>
+
+        <!-- 第八板块 - 我的故事 -->
+        <div id="story" class="section p8">
+            <h1>我的故事</h1>
+            <p>这东西可能要沉淀一会了，毕竟涉及到很多特效和需要写的地方</p>
+        </div>
+
+        <!-- 更新提示 -->
+        <div class="gengxin">
+            <font>本站持续更新中……</font>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="page_end">
+            <p>&copy;2024 ShaDiaowd 部分图片来源于网络 如有侵权请联系删除
+            </p>
+            <p>由 自己 提供技术支持</p>
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换逻辑
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // 点击链接后关闭菜单 (移动端体验优化)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
+```
